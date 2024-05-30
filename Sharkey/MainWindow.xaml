@@ -1,0 +1,210 @@
+﻿<Window x:Class="Sharkey.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:Icon="http://metro.mahapps.com/winfx/xaml/iconpacks"
+        Height="720" Width="1080" WindowStartupLocation="CenterScreen" AllowsTransparency="True"
+        Background="Transparent" WindowStyle="None">
+
+    <Window.Resources>
+        <BooleanToVisibilityConverter x:Key="BoolToVis" />
+    </Window.Resources>
+
+    <Border CornerRadius="30" Background="#EFF2F7" MouseDown="Border_MouseDown" MouseLeftButtonDown="Border_MouseLeftButtonDown">
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="200"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+
+            <!--Left Menu-->
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+
+                <!--Menu Icon-->
+                <Button Style="{StaticResource topButton}" HorizontalAlignment="Left" Margin="20 28 0 35">
+                    <Icon:PackIconMaterial Kind="Menu" Width="15" Height="15" />
+                </Button>
+
+                <Border Grid.Row="1" Background="#623ED0" CornerRadius="0 50 0 30">
+                    <DockPanel>
+                        <!--Menu Logo-->
+                        <Border Width="80" Height="80" Padding="3" Background="White" CornerRadius="100" DockPanel.Dock="Top" HorizontalAlignment="Left" Margin="20 -30 0 0">
+                            <!-- <Ellipse> -->
+                            <!--     <Ellipse.Fill> -->
+                            <!--         <ImageBrush ImageSource="/Images/p1.jpg"/> -->
+                            <!--     </Ellipse.Fill> -->
+                            <!-- </Ellipse> -->
+                        </Border>
+
+                        <!--Menu Titles-->
+                        <TextBlock Text="Никнейм" Foreground="White" FontSize="22" FontWeight="SemiBold" DockPanel.Dock="Top" Margin="5 25 0 10" TextAlignment="Center"/>
+                        <TextBlock Text="текст" Foreground="#D0BFFF" FontSize="14" FontWeight="SemiBold" DockPanel.Dock="Top" TextAlignment="Center"/>
+
+                        <!--Menu Seprator-->
+                        <Separator Margin="25" Background="#7E5FDC" DockPanel.Dock="Top" Height="0.8"/>
+
+                        <!--Menu Buttons-->
+                        <StackPanel DockPanel.Dock="Top" >
+                            <Button Style="{StaticResource menuButton}">
+                                <StackPanel Orientation="Horizontal">
+                                    <Icon:PackIconMaterial Kind="HomeVariant" Style="{StaticResource menuButtonIcon}"/>
+                                    <TextBlock Text="Главная"/>
+                                </StackPanel>
+                            </Button>
+
+                            <Button Style="{StaticResource menuButton}" Background="#7B5CD6" Foreground="White">
+                                <StackPanel Orientation="Horizontal">
+                                    <Icon:PackIconMaterial Kind="AccountKey" Style="{StaticResource menuButtonIcon}"/>
+                                    <TextBlock Text="Пароли"/>
+                                </StackPanel>
+                            </Button>
+
+                            <Button Style="{StaticResource menuButton}">
+                                <StackPanel Orientation="Horizontal">
+                                    <Icon:PackIconMaterial Kind="CreditCardPlus" Style="{StaticResource menuButtonIcon}"/>
+                                    <TextBlock Text="Подписка"/>
+                                </StackPanel>
+                            </Button>
+
+                            <Button Name="ImportButton" Click="ImportProfilesButton_OnClick" Style="{StaticResource menuButton}">
+                                <StackPanel Orientation="Horizontal">
+                                    <Icon:PackIconMaterial Kind="FileDownload" Style="{StaticResource menuButtonIcon}"/>
+                                    <TextBlock Text="Импорт"/>
+                                </StackPanel>
+                            </Button>
+                            
+                            <Button Name="ExportButton" Click="ExportProfilesButton_OnClick" Style="{StaticResource menuButton}">
+                                <StackPanel Orientation="Horizontal">
+                                    <Icon:PackIconMaterial Kind="FileUpload"  Style="{StaticResource menuButtonIcon}"/>
+                                    <TextBlock Text="Экспорт"/>
+                                </StackPanel>
+                            </Button>
+
+                        </StackPanel>
+
+                        <Button Name="CloseWindowButton" Click="CloseWindowButton_OnClick" Style="{StaticResource menuButton}" VerticalAlignment="Bottom" DockPanel.Dock="Bottom" Margin="15 0 15 20">
+                            <StackPanel Orientation="Horizontal">
+                                <Icon:PackIconMaterial Kind="Logout" Style="{StaticResource menuButtonIcon}"/>
+                                <TextBlock Text="Выйти"/>
+                            </StackPanel>
+                        </Button>
+
+                    </DockPanel>
+                </Border>
+
+            </Grid>
+
+        <!--Main Section-->
+            <Grid Grid.Column="1" Margin="30 20 20 20">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="auto"/>
+                </Grid.RowDefinitions>
+
+                <!--Search Textbox-->
+                <!-- <Grid Width="300" HorizontalAlignment="Left"> -->
+                <!--     <TextBlock Margin="20 0" VerticalAlignment="Center" Foreground="#B0B9C6" IsHitTestVisible="False" -->
+                <!--            Panel.ZIndex="1" Text="Искать здесь ..." -->
+                <!--            Visibility="{Binding ElementName=textBoxSearch, Path=Text.IsEmpty, Converter={StaticResource BoolToVis}}" /> -->
+                <!-- -->
+                <!--     <TextBox Name="textBoxSearch" Style="{StaticResource searchTextbox}"/> -->
+                <!-- -->
+                <!--     <Icon:PackIconMaterial Kind="Magnify" Width="15" Height="15" VerticalAlignment="Center" Margin="0 0 15 0" Foreground="#B0B9C6" HorizontalAlignment="Right" /> -->
+                <!-- </Grid> -->
+
+                <!--Top Buttons-->
+                <Button Style="{StaticResource topButton}" Margin="0 0 20 0" >
+                    <Icon:PackIconRemixIcon Kind="MoonFill"/>
+                </Button>
+
+                <Button Style="{StaticResource topButton}" Margin="0 0 55 0">
+                    <Icon:PackIconMaterial Kind="Bell"/>
+                </Button>
+
+                <!--Page Title-->
+                <TextBlock Text="Пароли" Grid.Row="1" FontSize="32" FontWeight="SemiBold" Margin="0 20 0 0" Foreground="#121518" HorizontalAlignment="Left"/>
+
+                <!--Add Button-->
+                <Button Name="AddProfileButton" Click="AddProfileButton_OnClick" Style="{StaticResource addButton}">
+                    <StackPanel Orientation="Horizontal">
+                        <Icon:PackIconMaterial Kind="Plus" VerticalAlignment="Center" Margin="0 1 8 0" Width="11" Height="11"/>
+                        <TextBlock Text="Новый профиль"/>
+                    </StackPanel>
+                </Button>
+
+                <!--Seprator-->
+                <Separator Height="1" Grid.Row="3" Background="#DAE2EA" Margin="0 -1 0 10"/>
+
+                <!--Tab buttons-->
+                <StackPanel Grid.Row="2"  Orientation="Horizontal" Margin="0 10 0 0">
+                    <Button Style="{StaticResource tabButton}" Content="Все" BorderBrush="#784FF2"/>
+                    <Button Style="{StaticResource tabButton}" Content="Сайты"/>
+                    <Button Style="{StaticResource tabButton}" Content="Приложения"/>
+                </StackPanel>
+
+                <!--Counter Title-->
+                <TextBlock Text="Профили" Grid.Row="4" FontSize="18" FontWeight="SemiBold" Foreground="#121518" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+
+                <TextBlock Text="Поиск" Grid.Row="4" FontSize="13" FontWeight="SemiBold" Margin="0 0 215 0" Foreground="#121518" HorizontalAlignment="Right" VerticalAlignment="Center"/>
+
+                <!--Search Textbox-->
+                <Grid Width="200" HorizontalAlignment="Right" Grid.Row="4">
+                    <TextBlock Margin="15 0" VerticalAlignment="Center" Foreground="#B0B9C6" IsHitTestVisible="False"
+                           Panel.ZIndex="1" Text="Искать по названию ..."
+                           Visibility="{Binding ElementName=textBoxFilter, Path=Text.IsEmpty, Converter={StaticResource BoolToVis}}" />
+
+                    <TextBox Name="textBoxFilter" Style="{StaticResource filterTextBox}"/>
+                </Grid>
+
+                <!--Profiles Data Grid-->
+                <DataGrid RowStyle="{DynamicResource DataGridRowStyle1}" ColumnHeaderStyle="{DynamicResource DataGridColumnHeaderStyle1}" CellStyle="{DynamicResource DataGridCellStyle1}" x:Name="profilesDataGrid" Style="{DynamicResource DataGridStyle1}">
+                    <DataGrid.Columns>
+                        <!-- <DataGridCheckBoxColumn Header="C" CanUserResize="False" Width="auto" ElementStyle="{StaticResource CheckBoxStyle1}"> -->
+                        <!--     <DataGridCheckBoxColumn.HeaderTemplate> -->
+                        <!--         <DataTemplate> -->
+                        <!--             <CheckBox Style="{StaticResource CheckBoxStyle1}"/> -->
+                        <!--         </DataTemplate> -->
+                        <!--     </DataGridCheckBoxColumn.HeaderTemplate> -->
+                        <!-- </DataGridCheckBoxColumn> -->
+                        <DataGridTextColumn Header="Номер" IsReadOnly="True" CanUserResize="False" Width="auto" Binding="{Binding Number}"/>
+                        <!-- <DataGridTemplateColumn Header="Название" IsReadOnly="True" Width="*"> -->
+                        <!--     <DataGridTemplateColumn.CellTemplate> -->
+                        <!--         <DataTemplate> -->
+                        <!--             <StackPanel Orientation="Horizontal"> -->
+                        <!--                 <TextBlock Text="{Binding profile_name}" VerticalAlignment="Center"/> -->
+                        <!--             </StackPanel> -->
+                        <!--         </DataTemplate> -->
+                        <!--     </DataGridTemplateColumn.CellTemplate> -->
+                        <!-- </DataGridTemplateColumn> -->
+                        <DataGridTextColumn Header="Название" Binding="{Binding Name}" IsReadOnly="True" Width="*"/>
+                        <DataGridTextColumn Header="Категория" Binding="{Binding Category}" IsReadOnly="True" Width="*"/>
+                        <DataGridTextColumn Header="Логин" Binding="{Binding Login}" IsReadOnly="True" Width="*"/>
+                        <DataGridTextColumn Header="Пароль" Binding="{Binding Hash}" IsReadOnly="True" Width="*"/>
+                        <DataGridTemplateColumn Header="Действия" IsReadOnly="True" Width="auto">
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <StackPanel Orientation="Horizontal">
+                                        <Button Name="EditProfileButton" Click="EditProfileButton_OnClick" Style="{StaticResource gridEditButton}">
+                                            <Icon:PackIconMaterial Kind="PencilOutline" Style="{StaticResource gridButtonIcon}"/>
+                                        </Button>
+                                        <Button Name="DeleteProfileButton" Click="DeleteProfileButton_OnClick" Margin="5 0 0 0" Style="{StaticResource gridRemoveButton}">
+                                            <Icon:PackIconMaterial Kind="DeleteOutline" Style="{StaticResource gridButtonIcon}"/>
+                                        </Button>
+                                    </StackPanel>
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
+                    </DataGrid.Columns>
+                </DataGrid>
+            </Grid>
+        </Grid>
+    </Border>
+</Window>

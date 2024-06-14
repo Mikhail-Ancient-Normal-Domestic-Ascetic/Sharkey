@@ -40,8 +40,8 @@
                         </Border>
 
                         <!--Menu Titles-->
-                        <TextBlock Text="Никнейм" Foreground="White" FontSize="22" FontWeight="SemiBold" DockPanel.Dock="Top" Margin="5 25 0 10" TextAlignment="Center"/>
-                        <TextBlock Text="текст" Foreground="#D0BFFF" FontSize="14" FontWeight="SemiBold" DockPanel.Dock="Top" TextAlignment="Center"/>
+                        <TextBlock Text="Михаил" Foreground="White" FontSize="22" FontWeight="SemiBold" DockPanel.Dock="Top" Margin="5 25 0 10" TextAlignment="Center"/>
+                        <TextBlock Text="простой пользователь" Foreground="#D0BFFF" FontSize="14" FontWeight="SemiBold" DockPanel.Dock="Top" TextAlignment="Center"/>
 
                         <!--Menu Seprator-->
                         <Separator Margin="25" Background="#7E5FDC" DockPanel.Dock="Top" Height="0.8"/>
@@ -108,18 +108,6 @@
                     <RowDefinition Height="*"/>
                     <RowDefinition Height="auto"/>
                 </Grid.RowDefinitions>
-
-                <!--Search Textbox-->
-                <!-- <Grid Width="300" HorizontalAlignment="Left"> -->
-                <!--     <TextBlock Margin="20 0" VerticalAlignment="Center" Foreground="#B0B9C6" IsHitTestVisible="False" -->
-                <!--            Panel.ZIndex="1" Text="Искать здесь ..." -->
-                <!--            Visibility="{Binding ElementName=textBoxSearch, Path=Text.IsEmpty, Converter={StaticResource BoolToVis}}" /> -->
-                <!-- -->
-                <!--     <TextBox Name="textBoxSearch" Style="{StaticResource searchTextbox}"/> -->
-                <!-- -->
-                <!--     <Icon:PackIconMaterial Kind="Magnify" Width="15" Height="15" VerticalAlignment="Center" Margin="0 0 15 0" Foreground="#B0B9C6" HorizontalAlignment="Right" /> -->
-                <!-- </Grid> -->
-
                 <!--Top Buttons-->
                 <Button Style="{StaticResource topButton}" Margin="0 0 20 0" >
                     <Icon:PackIconRemixIcon Kind="MoonFill"/>
@@ -167,23 +155,7 @@
                 <!--Profiles Data Grid-->
                 <DataGrid RowStyle="{DynamicResource DataGridRowStyle1}" ColumnHeaderStyle="{DynamicResource DataGridColumnHeaderStyle1}" CellStyle="{DynamicResource DataGridCellStyle1}" x:Name="profilesDataGrid" Style="{DynamicResource DataGridStyle1}">
                     <DataGrid.Columns>
-                        <!-- <DataGridCheckBoxColumn Header="C" CanUserResize="False" Width="auto" ElementStyle="{StaticResource CheckBoxStyle1}"> -->
-                        <!--     <DataGridCheckBoxColumn.HeaderTemplate> -->
-                        <!--         <DataTemplate> -->
-                        <!--             <CheckBox Style="{StaticResource CheckBoxStyle1}"/> -->
-                        <!--         </DataTemplate> -->
-                        <!--     </DataGridCheckBoxColumn.HeaderTemplate> -->
-                        <!-- </DataGridCheckBoxColumn> -->
                         <DataGridTextColumn Header="Номер" IsReadOnly="True" CanUserResize="False" Width="auto" Binding="{Binding Number}"/>
-                        <!-- <DataGridTemplateColumn Header="Название" IsReadOnly="True" Width="*"> -->
-                        <!--     <DataGridTemplateColumn.CellTemplate> -->
-                        <!--         <DataTemplate> -->
-                        <!--             <StackPanel Orientation="Horizontal"> -->
-                        <!--                 <TextBlock Text="{Binding profile_name}" VerticalAlignment="Center"/> -->
-                        <!--             </StackPanel> -->
-                        <!--         </DataTemplate> -->
-                        <!--     </DataGridTemplateColumn.CellTemplate> -->
-                        <!-- </DataGridTemplateColumn> -->
                         <DataGridTextColumn Header="Название" Binding="{Binding Name}" IsReadOnly="True" Width="*"/>
                         <DataGridTextColumn Header="Категория" Binding="{Binding Category}" IsReadOnly="True" Width="*"/>
                         <DataGridTextColumn Header="Логин" Binding="{Binding Login}" IsReadOnly="True" Width="*"/>

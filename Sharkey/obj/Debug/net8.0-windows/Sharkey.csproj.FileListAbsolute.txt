@@ -87,3 +87,6 @@ C:\Users\User\Desktop\Sharkey\Sharkey\bin\Debug\net8.0-windows\runtimes\browser\
 C:\Users\User\Desktop\Sharkey\Sharkey\obj\Debug\net8.0-windows\EditProfileWindow.baml
 C:\Users\User\Desktop\Sharkey\Sharkey\obj\Debug\net8.0-windows\EditProfileWindow.g.cs
 C:\Users\User\Desktop\Sharkey\Sharkey\bin\Debug\net8.0-windows\Newtonsoft.Json.dll
+C:\Users\User\Desktop\Sharkey\Sharkey\obj\Debug\net8.0-windows\AuthWindow.baml
+C:\Users\User\Desktop\Sharkey\Sharkey\obj\Debug\net8.0-windows\AuthWindow.g.cs
+C:\Users\User\Desktop\Sharkey\Sharkey\obj\Debug\net8.0-windows\Sharkey.sourcelink.json
